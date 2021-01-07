@@ -10,7 +10,7 @@ namespace src.Api.Domain.Interfaces
         Task<T> InsertAsync(T item);
         Task<T> UpdateAsync(T item);
         Task<T> SelectAsync(Guid id);
-        IEnumerable<Task<T>> SelectAsync();
-        bool DeleteAsync(Guid id);
+        Task<IEnumerable<T>> SelectAsync();
+        Task<bool> DeleteAsync(Guid id);
     }
 }
