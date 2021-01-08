@@ -16,7 +16,7 @@ namespace src.Api.Data.Test
     {
         private string DbName = "api-videolocadora-db-test_"
                                 + Guid.NewGuid().ToString().Replace("-", string.Empty);
-        private ServiceProvider _serviceProvider;
+        public ServiceProvider serviceProvider {get; private set;}
 
         public DbTest()
         {
@@ -30,9 +30,9 @@ namespace src.Api.Data.Test
                                  ServiceLifetime.Transient                    
             );
 
-            _serviceProvider = serviceCollection.BuildServiceProvider();
+            serviceProvider = serviceCollection.BuildServiceProvider();
 
-            using(var context = _serviceProvider.GetService<MyContext>())
+            using(var context = serviceProvider.GetService<MyContext>())
             {
                 context.Database.EnsureCreated();
             }
@@ -40,7 +40,7 @@ namespace src.Api.Data.Test
 
         public void Dispose()
         {
-            using(var context = _serviceProvider.GetService<MyContext>())
+            using(var context = serviceProvider.GetService<MyContext>())
             {
                 context.Database.EnsureDeleted();
             }
