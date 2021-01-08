@@ -1,4 +1,5 @@
 using System;
+using src.Api.Domain.Dtos.Funcionario;
 using src.Api.Domain.Entities;
 using src.Api.Domain.Enuns;
 
@@ -12,6 +13,6 @@ namespace src.Api.Domain.Dtos.Filme
         public string Titulo { get; set; }
         public Categoria Categoria { get; set; }
         public int QtdLocacao { get; set; }
-        public FuncionarioEntity Cadastrador { get; set; }
+        public FuncionarioDtoGetResult Cadastrador { get; set; }
     }
 }

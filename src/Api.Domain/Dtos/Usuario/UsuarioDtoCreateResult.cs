@@ -1,9 +1,9 @@
 using System;
 using src.Api.Domain.Enuns;
 
-namespace src.Api.Domain.Dtos.Cliente
+namespace src.Api.Domain.Dtos.Usuario
 {
-    public class ClienteDtoCreateResult
+    public class UsuarioDtoCreateResult
     {
         public Guid Id { get; set; }
         public string Nome { get; set; }

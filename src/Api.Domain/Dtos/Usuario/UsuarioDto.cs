@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace src.Api.Domain.Dtos.Cliente
+namespace src.Api.Domain.Dtos.Usuario
 {
-    public class ClienteDto
+    public class UsuarioDto
     {
         [Required(ErrorMessage = "Campo nome é obrigatório.")]
         [StringLength(100, ErrorMessage = "Campo nome deve ter no máximo {1} caracteres.")]
