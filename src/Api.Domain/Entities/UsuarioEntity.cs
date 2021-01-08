@@ -7,7 +7,7 @@ namespace src.Api.Domain.Entities
     {
         public string Nome { get; set; }
         public string Email { get; set; }
-        public TipoUsuario tipoUsuario { get; set; }
+        public TipoUsuario TipoUsuario { get; set; }
         public IEnumerable<FilmeEntity> FilmesAlugados { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace src.Api.Domain.Entities
         public string Titulo { get; set; }
         public Categoria Categoria { get; set; }
         public int QtdLocacao { get; set; }  
-        public UsuarioEntity locatario { get; set; } 
-        public FuncionarioEntity cadastrador { get; set; }     
+        public UsuarioEntity Locatario { get; set; } 
+        public FuncionarioEntity Cadastrador { get; set; }     
     }
 }
