@@ -9,7 +9,7 @@ namespace src.Api.Data.Mapping
         public void Configure(EntityTypeBuilder<FuncionarioEntity> builder)
         {                       
 
-            builder.HasIndex(u => u.matricula)
+            builder.HasIndex(u => u.Matricula)
                    .IsUnique();
             
             builder.HasIndex(u => u.Email)
@@ -19,11 +19,11 @@ namespace src.Api.Data.Mapping
                    .IsRequired()
                    .HasMaxLength(100); 
             
-            builder.Property(u => u.senha)
+            builder.Property(u => u.Senha)
                    .IsRequired()
                    .HasMaxLength(100);
             
-            builder.Property(u => u.tipoUsuario)
+            builder.Property(u => u.TipoUsuario)
                    .IsRequired();                  
         }
     }

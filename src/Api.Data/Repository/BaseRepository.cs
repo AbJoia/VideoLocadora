@@ -88,7 +88,7 @@ namespace src.Api.Data.Repository
         }
 
         public async Task<T> UpdateAsync(T item)
-        {
+        {            
             try
             {
                if(item == null) return null;
@@ -101,8 +101,7 @@ namespace src.Api.Data.Repository
                return item;
             }
             catch (Exception e)
-            {
-                
+            {                
                 throw e;
             }            
         }

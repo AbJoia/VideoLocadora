@@ -16,10 +16,10 @@ namespace Api.Data.Migrations
                     UpdateAt = table.Column<DateTime>(nullable: false),
                     Nome = table.Column<string>(maxLength: 100, nullable: false),
                     Email = table.Column<string>(maxLength: 100, nullable: false),
-                    tipoUsuario = table.Column<int>(nullable: false),
+                    TipoUsuario = table.Column<int>(nullable: false),
                     Discriminator = table.Column<string>(nullable: false),
-                    senha = table.Column<string>(maxLength: 100, nullable: true),
-                    matricula = table.Column<long>(nullable: true)
+                    Senha = table.Column<string>(maxLength: 100, nullable: true),
+                    Matricula = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -67,9 +67,9 @@ namespace Api.Data.Migrations
                 column: "locatarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_usuario_matricula",
+                name: "IX_usuario_Matricula",
                 table: "usuario",
-                column: "matricula",
+                column: "Matricula",
                 unique: true);
 
             migrationBuilder.CreateIndex(

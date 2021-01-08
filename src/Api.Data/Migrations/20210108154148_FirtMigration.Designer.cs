@@ -9,7 +9,7 @@ using src.Api.Data.Context;
 namespace Api.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210108142749_FirtMigration")]
+    [Migration("20210108154148_FirtMigration")]
     partial class FirtMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,11 +80,11 @@ namespace Api.Data.Migrations
                         .HasColumnType("varchar(100) CHARACTER SET utf8mb4")
                         .HasMaxLength(100);
 
+                    b.Property<int>("TipoUsuario")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<int>("tipoUsuario")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -100,15 +100,15 @@ namespace Api.Data.Migrations
                 {
                     b.HasBaseType("src.Api.Domain.Entities.UsuarioEntity");
 
-                    b.Property<long>("matricula")
+                    b.Property<long>("Matricula")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("senha")
+                    b.Property<string>("Senha")
                         .IsRequired()
                         .HasColumnType("varchar(100) CHARACTER SET utf8mb4")
                         .HasMaxLength(100);
 
-                    b.HasIndex("matricula")
+                    b.HasIndex("Matricula")
                         .IsUnique();
 
                     b.HasDiscriminator().HasValue("FuncionarioEntity");
