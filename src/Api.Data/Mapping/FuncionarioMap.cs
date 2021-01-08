@@ -7,10 +7,7 @@ namespace src.Api.Data.Mapping
     public class FuncionarioMap : IEntityTypeConfiguration<FuncionarioEntity>
     {
         public void Configure(EntityTypeBuilder<FuncionarioEntity> builder)
-        {
-            builder.ToTable("funcionario");
-
-            builder.HasKey(u => u.Id);
+        {                       
 
             builder.HasIndex(u => u.matricula)
                    .IsUnique();

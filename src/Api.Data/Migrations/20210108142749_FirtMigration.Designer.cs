@@ -9,8 +9,8 @@ using src.Api.Data.Context;
 namespace Api.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210107233315_FirstMigrations")]
-    partial class FirstMigrations
+    [Migration("20210108142749_FirtMigration")]
+    partial class FirtMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,7 +35,9 @@ namespace Api.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Titulo")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .IsRequired()
+                        .HasColumnType("varchar(100) CHARACTER SET utf8mb4")
+                        .HasMaxLength(100);
 
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("datetime(6)");
@@ -52,7 +54,7 @@ namespace Api.Data.Migrations
 
                     b.HasIndex("locatarioId");
 
-                    b.ToTable("Filmes");
+                    b.ToTable("filme");
                 });
 
             modelBuilder.Entity("src.Api.Domain.Entities.UsuarioEntity", b =>
@@ -69,10 +71,14 @@ namespace Api.Data.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Email")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .IsRequired()
+                        .HasColumnType("varchar(100) CHARACTER SET utf8mb4")
+                        .HasMaxLength(100);
 
                     b.Property<string>("Nome")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .IsRequired()
+                        .HasColumnType("varchar(100) CHARACTER SET utf8mb4")
+                        .HasMaxLength(100);
 
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("datetime(6)");
@@ -82,7 +88,10 @@ namespace Api.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuario");
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.ToTable("usuario");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("UsuarioEntity");
                 });
@@ -95,7 +104,12 @@ namespace Api.Data.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("senha")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .IsRequired()
+                        .HasColumnType("varchar(100) CHARACTER SET utf8mb4")
+                        .HasMaxLength(100);
+
+                    b.HasIndex("matricula")
+                        .IsUnique();
 
                     b.HasDiscriminator().HasValue("FuncionarioEntity");
                 });

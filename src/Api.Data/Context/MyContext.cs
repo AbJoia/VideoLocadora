@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using src.Api.Data.Mapping;
 using src.Api.Domain.Entities;
 
 namespace src.Api.Data.Context
@@ -14,7 +15,10 @@ namespace src.Api.Data.Context
         }
         protected override void OnModelCreating (ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);            
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<UsuarioEntity>(new UsuarioMap().Configure);
+            modelBuilder.Entity<FuncionarioEntity>(new FuncionarioMap().Configure);
+            modelBuilder.Entity<FilmeEntity>(new FilmeMap().Configure);            
         }
     }
 }
