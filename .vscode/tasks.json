@@ -49,6 +49,18 @@
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Api.Service.Test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",                
+                "${workspaceFolder}/src/Api.Service.Test/Api.Service.Test.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
         }
     ]
 }
