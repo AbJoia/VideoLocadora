@@ -12,15 +12,21 @@ namespace src.Api.CrossCutting.Mappings
         {
             //Usuario Mapping
             CreateMap<UsuarioModel, UsuarioDto>()
-                    .ReverseMap();            
+                    .ReverseMap();
+            CreateMap<UsuarioModel, UsuarioDtoUpdate>()
+                    .ReverseMap();
 
             //Funcionario Mapping
             CreateMap<FuncionarioModel, FuncionarioDto>()
-                    .ReverseMap();           
+                    .ReverseMap(); 
+            CreateMap<FuncionarioModel, FuncionarioDtoUpdate>()
+                    .ReverseMap();
             
             //Filme Mapping
             CreateMap<FilmeModel, FilmeDto>()
-                    .ReverseMap();          
+                    .ReverseMap(); 
+            CreateMap<FilmeModel, FilmeDtoUpdate>()
+                    .ReverseMap();
         }        
     }
 }

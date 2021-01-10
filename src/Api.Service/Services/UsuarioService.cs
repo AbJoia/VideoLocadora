@@ -49,7 +49,7 @@ namespace src.Api.Service.Services
             return _mapper.Map<UsuarioDtoCreateResult>(result);
         }
 
-        public async Task<UsuarioDtoUpdateResult> PutAsync(UsuarioDto usuario)
+        public async Task<UsuarioDtoUpdateResult> PutAsync(UsuarioDtoUpdate usuario)
         {
             var model = _mapper.Map<UsuarioModel>(usuario);
             var entity = _mapper.Map<UsuarioEntity>(model);

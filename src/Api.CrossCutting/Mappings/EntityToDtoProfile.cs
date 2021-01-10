@@ -13,6 +13,8 @@ namespace src.Api.CrossCutting.Mappings
             //Usuario Mapping
             CreateMap<UsuarioEntity, UsuarioDto>()
                     .ReverseMap();
+            CreateMap<UsuarioEntity, UsuarioDtoUpdate>()
+                    .ReverseMap();        
             CreateMap<UsuarioEntity, UsuarioDtoCreateResult>()
                     .ReverseMap();
             CreateMap<UsuarioEntity, UsuarioDtoUpdateResult>()
@@ -25,6 +27,8 @@ namespace src.Api.CrossCutting.Mappings
             //Funcionario Mapping
             CreateMap<FuncionarioEntity, FuncionarioDto>()
                     .ReverseMap();
+            CreateMap<FuncionarioEntity, FuncionarioDtoUpdate>()
+                    .ReverseMap();            
             CreateMap<FuncionarioEntity, FuncionarioDtoCreateResult>()
                     .ReverseMap();
             CreateMap<FuncionarioEntity, FuncionarioDtoGetResult>()
@@ -35,6 +39,8 @@ namespace src.Api.CrossCutting.Mappings
             //Filme Mapping
             CreateMap<FilmeEntity, FilmeDto>()
                     .ReverseMap();
+            CreateMap<FilmeEntity, FilmeDtoUpdate>()
+                    .ReverseMap();            
             CreateMap<FilmeEntity, FilmeDtoCreateResult>()
                     .ReverseMap();
             CreateMap<FilmeEntity, FilmeDtoGetResult>()
