@@ -11,6 +11,6 @@ namespace src.Api.Domain.Interfaces.Services
         Task<FuncionarioDtoUpdateResult> PutAsync (FuncionarioDto funcionario);
         Task<FuncionarioDtoGetResult> GetAsync (Guid id);
         Task<IEnumerable<FuncionarioDtoGetResult>> GetAllAsync ();
-        Task<bool> DeleteAsync (Guid id);
+        Task<bool> DeleteAsync (Guid id);        
     }
 }
