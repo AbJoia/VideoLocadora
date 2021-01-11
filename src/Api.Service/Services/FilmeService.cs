@@ -30,6 +30,7 @@ namespace src.Api.Service.Services
 
         public async Task<bool> DeleteAsync(Guid id)
         {
+            if(id == Guid.Empty || id == null) return false;
             return await _repository.DeleteAsync(id);
         }
 
@@ -42,6 +43,7 @@ namespace src.Api.Service.Services
 
         public async Task<FilmeDtoGetResult> GetAsync(Guid id)
         {
+            if(id == Guid.Empty || id == null) return null;
             var result = await _repository.SelectAsync();
             if(result == null) return null;
             return _mapper.Map<FilmeDtoGetResult>(result);
@@ -49,6 +51,7 @@ namespace src.Api.Service.Services
 
         public async Task<FilmeDtoCreateResult> PostAsync(FilmeDto filme, Guid cadastrador)
         {
+            if(filme == null || cadastrador == null || cadastrador == Guid.Empty) return null;
             var funcionario = await _funcionarioRepository.SelectAsync(cadastrador);
             if(funcionario == null) return null;
             var funcionarioModel = _mapper.Map<FuncionarioModel>(funcionario);
@@ -61,8 +64,9 @@ namespace src.Api.Service.Services
             return _mapper.Map<FilmeDtoCreateResult>(result);
         }
 
-        public async Task<FilmeDtoUpdateResult> PutAsync(FilmeDto filme, Guid cadastrador)
+        public async Task<FilmeDtoUpdateResult> PutAsync(FilmeDtoUpdate filme, Guid cadastrador)
         {
+            if(filme == null || cadastrador == null || cadastrador == Guid.Empty) return null;
             var funcionario = await _funcionarioRepository.SelectAsync(cadastrador);
             if(funcionario == null) return null;
             var funcionarioModel = _mapper.Map<FuncionarioModel>(funcionario);
@@ -74,8 +78,10 @@ namespace src.Api.Service.Services
             return _mapper.Map<FilmeDtoUpdateResult>(result);
         }
 
-        public async Task<FilmeDtoLocacaoResult> AluguelFilme(Guid IdLocatario, Guid IdFilme)
+        public async Task<FilmeDtoLocacaoResult> AluguelFilmeAsync(Guid IdLocatario, Guid IdFilme)
         {
+            if(IdLocatario == null || IdLocatario == Guid.Empty) return null;
+            if(IdFilme == null || IdFilme == Guid.Empty) return null;
             var locatarioEntity = await _usuarioRepository.SelectAsync(IdLocatario);
             if(locatarioEntity == null) return null;
             var locatarioModel = _mapper.Map<UsuarioModel>(locatarioEntity);

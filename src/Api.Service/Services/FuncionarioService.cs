@@ -35,6 +35,7 @@ namespace src.Api.Service.Services
 
         public async Task<FuncionarioDtoGetResult> GetAsync(Guid id)
         {
+            if(id == Guid.Empty || id == null) return null;
             var result = await _repository.SelectAsync(id);
             if(result == null) return null;
             return _mapper.Map<FuncionarioDtoGetResult>(result);
@@ -42,6 +43,7 @@ namespace src.Api.Service.Services
 
         public async Task<FuncionarioDtoCreateResult> PostAsync(FuncionarioDto funcionario)
         {
+            if(funcionario == null) return null;
             var model = _mapper.Map<FuncionarioModel>(funcionario);
             model.Matricula = GerarMatricula();            
             var entity = _mapper.Map<FuncionarioEntity>(model);
@@ -50,8 +52,9 @@ namespace src.Api.Service.Services
             return _mapper.Map<FuncionarioDtoCreateResult>(result);
         }
 
-        public async Task<FuncionarioDtoUpdateResult> PutAsync(FuncionarioDto funcionario)
+        public async Task<FuncionarioDtoUpdateResult> PutAsync(FuncionarioDtoUpdate funcionario)
         {
+            if(funcionario == null) return null;
             var entity = _mapper.Map<FuncionarioEntity>(funcionario);
             var result = await _repository.UpdateAsync(entity);
             if(result == null) return null;
