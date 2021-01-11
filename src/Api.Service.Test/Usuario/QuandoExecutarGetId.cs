@@ -13,7 +13,7 @@ namespace src.Api.Service.Test.Usuario
         private Mock<IUsuarioService> _serviceMock;
 
        [Fact]
-       public async Task É_Possivel_Executar_GetId()
+       public async Task E_Possivel_Executar_GetId()
        {
            _serviceMock = new Mock<IUsuarioService>();
            _serviceMock.Setup(m => m.GetAsync(It.IsAny<Guid>()))

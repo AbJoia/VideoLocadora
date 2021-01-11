@@ -10,7 +10,7 @@ namespace src.Api.Service.Test.Usuario
         private IUsuarioService _service;
         private Mock<IUsuarioService> _serviceMock;
         [Fact]
-        public async Task É_Possivel_Executar_Create()
+        public async Task E_Possivel_Executar_Create()
         {
             _serviceMock = new Mock<IUsuarioService>();
             _serviceMock.Setup(m => m.PostAsync(usuarioDto))
