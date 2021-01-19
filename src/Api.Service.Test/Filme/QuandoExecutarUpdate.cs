@@ -16,35 +16,32 @@ namespace src.Api.Service.Test.Filme
         public async Task E_Possivel_Executar_Update()
         {
             _serviceMock = new Mock<IFilmeService>();
-            _serviceMock.Setup(m => m.PutAsync(filmeDtoUpdate, CadastradorFilme.Id))
+            _serviceMock.Setup(m => m.PutAsync(filmeDtoUpdate))
                         .ReturnsAsync(filmeDtoUpdateResult);
             _service = _serviceMock.Object;
 
-            var result = await _service.PutAsync(filmeDtoUpdate, CadastradorFilme.Id);
+            var result = await _service.PutAsync(filmeDtoUpdate);
             Assert.NotNull(result);
             Assert.True(result.Id != Guid.Empty);
             Assert.Equal(result.Id, IdFilme);
             Assert.Equal(result.Titulo, TituloFilmeAlterado);            
             Assert.Equal(result.Categoria, CategoriaFilmeAlterado);
-            Assert.Equal(result.Cadastrador, CadastradorFilme);
-            Assert.Equal(result.Cadastrador.Id, CadastradorFilme.Id);
+            Assert.Equal(result.Funcionario, CadastradorFilme);
+            Assert.Equal(result.Funcionario.Id, CadastradorFilme.Id);
             Assert.True(result.CreateAt != null);
             Assert.True(result.UpdateAt.CompareTo(result.CreateAt) > 0); 
 
             _serviceMock = new Mock<IFilmeService>();
-            _serviceMock.Setup(m => m.PutAsync(filmeDtoUpdate, CadastradorFilme.Id))
+            _serviceMock.Setup(m => m.PutAsync(filmeDtoUpdate))
                         .ReturnsAsync(filmeDtoUpdateResult);
-            _service = _serviceMock.Object; 
-
-            var nullResult = await _service.PutAsync(filmeDtoUpdate, Guid.Empty);
-            Assert.Null(nullResult);
+            _service = _serviceMock.Object;          
 
              _serviceMock = new Mock<IFilmeService>();
-            _serviceMock.Setup(m => m.PutAsync(It.IsAny<FilmeDtoUpdate>(), It.IsAny<Guid>()))
+            _serviceMock.Setup(m => m.PutAsync(It.IsAny<FilmeDtoUpdate>()))
                         .Returns(Task.FromResult<FilmeDtoUpdateResult>(null));
             _service = _serviceMock.Object;
 
-            nullResult = await _service.PutAsync(filmeDtoUpdate, CadastradorFilme.Id);
+            var nullResult = await _service.PutAsync(filmeDtoUpdate);
             Assert.Null(nullResult);           
         }
     }

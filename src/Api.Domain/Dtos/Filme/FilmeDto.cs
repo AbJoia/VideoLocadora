@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using src.Api.Domain.Enuns;
 
@@ -12,5 +13,8 @@ namespace src.Api.Domain.Dtos.Filme
         [Required(ErrorMessage = "Campo categoria é obrigatório")]
         [EnumDataType(typeof(Categoria))]
         public Categoria Categoria { get; set; }
+
+        [Required(ErrorMessage = "Campo Id Funcionario é Obrigatório")]
+        public Guid FuncionarioId { get; set; }
     }
 }

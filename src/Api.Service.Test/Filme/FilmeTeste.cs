@@ -48,7 +48,7 @@ namespace src.Api.Service.Test.Filme
             {
                 Id = IdFilme,
                 Titulo = TituloFilme,
-                Cadastrador = CadastradorFilme,
+                Funcionario = CadastradorFilme,
                 Categoria = CategoriaFilme,
                 CreateAt = DateTime.UtcNow
             };
@@ -57,7 +57,7 @@ namespace src.Api.Service.Test.Filme
             {
                 Id = IdFilme,
                 Titulo = TituloFilme,
-                Cadastrador = CadastradorFilme,
+                Funcionario = CadastradorFilme,
                 Categoria = CategoriaFilme,
                 CreateAt = DateTime.UtcNow,
                 QtdLocacao = QtdLocacaoFilme,
@@ -70,8 +70,7 @@ namespace src.Api.Service.Test.Filme
             {
                 Id = IdFilme,
                 Titulo = TituloFilme,
-                Categoria = CategoriaFilme,
-                Locatario = LocatarioFilme
+                Categoria = CategoriaFilme,                
             };
 
             filmeDtoUpdate = new FilmeDtoUpdate()
@@ -88,7 +87,7 @@ namespace src.Api.Service.Test.Filme
                 Categoria = CategoriaFilmeAlterado,
                 CreateAt = DateTime.UtcNow,
                 UpdateAt = DateTime.UtcNow.AddHours(2.0),
-                Cadastrador = CadastradorFilme,      
+                Funcionario = CadastradorFilme,      
             };           
         }
 
@@ -112,7 +111,7 @@ namespace src.Api.Service.Test.Filme
                    {
                        Id = Guid.NewGuid(),
                        Titulo = Faker.Country.Name(),
-                       Cadastrador = GetCadastradorFilmeMock(),
+                       Funcionario = GetCadastradorFilmeMock(),
                        Categoria = (Categoria) new Random().Next(Enum.GetNames(typeof(Categoria)).Length),
                        CreateAt = DateTime.UtcNow,
                        QtdLocacao = new Random().Next(1, 10),

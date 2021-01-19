@@ -10,7 +10,7 @@ namespace src.Api.Data.Repository
 {
     public class BaseRepository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly MyContext _context;
+        private MyContext _context;
         private DbSet<T> _dataSet;
 
         public BaseRepository(MyContext context)
@@ -40,6 +40,8 @@ namespace src.Api.Data.Repository
         {
            try
            {
+               if(item == null) return null;
+
                if(item.Id == Guid.Empty)
                {
                    item.Id = Guid.NewGuid();
@@ -52,8 +54,7 @@ namespace src.Api.Data.Repository
                return item;
            }
            catch (Exception e)
-           {
-               
+           {               
                throw e;
            }
         }
@@ -70,8 +71,7 @@ namespace src.Api.Data.Repository
             catch (Exception e)
             {                
                 throw e;
-            }
-            
+            }            
         }
 
         public async Task<IEnumerable<T>> SelectAsync()
@@ -81,8 +81,7 @@ namespace src.Api.Data.Repository
                 return await _dataSet.ToListAsync();
             }
             catch (Exception e)
-            {
-                
+            {                
                 throw e;
             }
         }

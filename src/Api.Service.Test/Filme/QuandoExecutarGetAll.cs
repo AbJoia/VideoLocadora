@@ -14,7 +14,7 @@ namespace src.Api.Service.Test.Filme
         private Mock<IFilmeService> _serviceMock;
 
         [Fact]
-        public async Task E_Possivel_Executar_GetId()
+        public async Task E_Possivel_Executar_GetAll()
         {
             _serviceMock = new Mock<IFilmeService>();
             _serviceMock.Setup(m => m.GetAllAsync())
@@ -24,7 +24,7 @@ namespace src.Api.Service.Test.Filme
             var result = await _service.GetAllAsync();
             Assert.NotNull(result);                        
             Assert.True(result.Count() > 0);
-            Assert.True(result.Count() >= 2 && result.Count() <= 4);                     
+            Assert.True(result.Count() >= 1 && result.Count() <= 10);                     
         }        
     }
 }

@@ -8,7 +8,6 @@ namespace src.Api.Domain.Dtos.Filme
     {
         public Guid Id { get; set; }
         public string Titulo { get; set; }
-        public Categoria Categoria { get; set; }
-        public UsuarioDtoLocacaoResult Locatario { get; set; }
+        public Categoria Categoria { get; set; }        
     }
 }

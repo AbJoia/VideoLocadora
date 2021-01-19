@@ -125,7 +125,7 @@ namespace src.Api.Service.Test.Usuario
                       QtdLocacao = Faker.RandomNumber.Next(2, 50),
                       CreateAt = DateTime.UtcNow,
                       UpdateAt = DateTime.UtcNow.AddHours(0.5),
-                      Cadastrador = new FuncionarioDtoGetResult()
+                      Funcionario = new FuncionarioDtoGetResult()
                         {
                             Id = Guid.NewGuid(),
                             Nome = Faker.Name.FullName(),

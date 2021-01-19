@@ -5,29 +5,9 @@ using src.Api.Domain.Enuns;
 
 namespace src.Api.Domain.Model
 {
-    public class FuncionarioModel
+    public class FuncionarioModel : BaseModel
     {
-        private Guid id;
-        public Guid Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-        
-        private DateTime createAt;
-        public DateTime CreateAt
-        {
-            get { return createAt; }
-            set { createAt = value == null? DateTime.UtcNow : value; }
-        }
-        
-        private DateTime updateAt;
-        public DateTime UpdateAt
-        {
-            get { return updateAt; }
-            set { updateAt = value; }
-        }
-        
+                
         private string nome;
         public string Nome
         {
@@ -46,7 +26,8 @@ namespace src.Api.Domain.Model
         public TipoUsuario TipoUsuario
         {
             get { return tipoUsuario; }
-            set { tipoUsuario = value; }
+            set { tipoUsuario = Enum.GetNames(typeof(TipoUsuario))
+                                    .Equals(value)? TipoUsuario.FUNCIONARIO : value;}
         }
 
         private long matricula;
@@ -61,20 +42,6 @@ namespace src.Api.Domain.Model
         {
             get { return senha; }
             set { senha = value; }
-        }
-
-        private IEnumerable<FilmeDtoGetResult> filmesCadastrados;
-        public IEnumerable<FilmeDtoGetResult> FilmesCadastrados
-        {
-            get { return filmesCadastrados; }
-            set { filmesCadastrados = value; }
-        }      
-        
-        private IEnumerable<FilmeModel> filmesAlugados;
-        public IEnumerable<FilmeModel> FilmesAlugados
-        {
-            get { return filmesAlugados; }
-            set { filmesAlugados = value; }
-        } 
+        }         
     }
 }

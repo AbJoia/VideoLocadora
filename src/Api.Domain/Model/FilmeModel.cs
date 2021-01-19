@@ -3,29 +3,9 @@ using src.Api.Domain.Enuns;
 
 namespace src.Api.Domain.Model
 {
-    public class FilmeModel
+    public class FilmeModel : BaseModel
     {
-        private Guid id;
-        public Guid Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-        
-        private DateTime createAt;
-        public DateTime CreateAt
-        {
-            get { return createAt; }
-            set { createAt = value == null? DateTime.UtcNow : value; }
-        }
-
-        private DateTime updateAt;
-        public DateTime UpdateAt
-        {
-            get { return updateAt; }
-            set { updateAt = value; }
-        }
-        
+                
         private string titulo;
         public string Titulo
         {
@@ -45,20 +25,13 @@ namespace src.Api.Domain.Model
         {
             get { return qtdLocacao; }
             set { qtdLocacao = value; }
-        }
-        
-        private UsuarioModel usuario;
-        public UsuarioModel Usuario
+        }                       
+
+        private Guid funcionarioId;
+        public Guid FuncionarioId
         {
-            get { return usuario; }
-            set { usuario = value; }
-        }
-        
-        private FuncionarioModel funcionario;
-        public FuncionarioModel Funcionario
-        {
-            get { return funcionario; }
-            set { funcionario = value; }
-        }       
+            get { return funcionarioId; }
+            set { funcionarioId = value; }
+        }          
     }
 }

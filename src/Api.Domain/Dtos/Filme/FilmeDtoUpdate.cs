@@ -8,6 +8,7 @@ namespace src.Api.Domain.Dtos.Filme
     {
         [Required(ErrorMessage = "Campo Id é obrigatório.")]
         public Guid Id { get; set; }
+        
         [Required(ErrorMessage = "Campo titulo é obrigatório")]
         [StringLength(150, ErrorMessage = "Campo titulo deve ter no máximo {1} caracteres")]
         public string Titulo { get; set; }
@@ -15,5 +16,8 @@ namespace src.Api.Domain.Dtos.Filme
         [Required(ErrorMessage = "Campo categoria é obrigatório")]
         [EnumDataType(typeof(Categoria))]
         public Categoria Categoria { get; set; }
+
+        [Required(ErrorMessage = "Campo Id Funcioanrio é Obrigatório")]
+        public Guid FuncionarioId { get; set; }
     }
 }

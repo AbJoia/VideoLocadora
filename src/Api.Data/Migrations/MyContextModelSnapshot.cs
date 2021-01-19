@@ -17,6 +17,31 @@ namespace Api.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.1.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("src.Api.Domain.Entities.AluguelEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DataDevolução")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("UpdateAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid>("UsuarioId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("aluguel");
+                });
+
             modelBuilder.Entity("src.Api.Domain.Entities.FilmeEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -29,6 +54,9 @@ namespace Api.Data.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<Guid>("FuncionarioId")
+                        .HasColumnType("char(36)");
+
                     b.Property<int>("QtdLocacao")
                         .HasColumnType("int");
 
@@ -40,19 +68,38 @@ namespace Api.Data.Migrations
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<Guid?>("cadastradorId")
+                    b.HasKey("Id");
+
+                    b.HasIndex("FuncionarioId");
+
+                    b.ToTable("filme");
+                });
+
+            modelBuilder.Entity("src.Api.Domain.Entities.ItemAluguelEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid?>("locatarioId")
+                    b.Property<Guid>("AluguelId")
                         .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("CreateAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid>("FilmeId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("UpdateAt")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("cadastradorId");
+                    b.HasIndex("AluguelId");
 
-                    b.HasIndex("locatarioId");
+                    b.HasIndex("FilmeId");
 
-                    b.ToTable("filme");
+                    b.ToTable("item_aluguel");
                 });
 
             modelBuilder.Entity("src.Api.Domain.Entities.UsuarioEntity", b =>
@@ -112,15 +159,37 @@ namespace Api.Data.Migrations
                     b.HasDiscriminator().HasValue("FuncionarioEntity");
                 });
 
+            modelBuilder.Entity("src.Api.Domain.Entities.AluguelEntity", b =>
+                {
+                    b.HasOne("src.Api.Domain.Entities.UsuarioEntity", "Usuario")
+                        .WithMany("Alugueis")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("src.Api.Domain.Entities.FilmeEntity", b =>
                 {
-                    b.HasOne("src.Api.Domain.Entities.FuncionarioEntity", "cadastrador")
+                    b.HasOne("src.Api.Domain.Entities.FuncionarioEntity", "Funcionario")
                         .WithMany("FilmesCadastrados")
-                        .HasForeignKey("cadastradorId");
+                        .HasForeignKey("FuncionarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                    b.HasOne("src.Api.Domain.Entities.UsuarioEntity", "locatario")
-                        .WithMany("FilmesAlugados")
-                        .HasForeignKey("locatarioId");
+            modelBuilder.Entity("src.Api.Domain.Entities.ItemAluguelEntity", b =>
+                {
+                    b.HasOne("src.Api.Domain.Entities.AluguelEntity", "Aluguel")
+                        .WithMany("ItensAluguel")
+                        .HasForeignKey("AluguelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("src.Api.Domain.Entities.FilmeEntity", "Filme")
+                        .WithMany("ItensAluguel")
+                        .HasForeignKey("FilmeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

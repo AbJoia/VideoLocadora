@@ -115,7 +115,7 @@ namespace src.Api.Service.Test.Funcionario
                       Id = Guid.NewGuid(),
                       Titulo = Faker.Name.FullName(),
                       Categoria = (Categoria) new Random().Next(Enum.GetNames(typeof(Categoria)).Length),
-                      Cadastrador = new FuncionarioDtoGetResult()
+                      Funcionario = new FuncionarioDtoGetResult()
                         {
                            Id = filmeCadastrado? IdFuncionario : Guid.NewGuid(),
                            Nome = filmeCadastrado? NomeFuncionario : Faker.Name.FullName(),

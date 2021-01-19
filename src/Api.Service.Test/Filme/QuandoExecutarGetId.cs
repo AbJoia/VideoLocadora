@@ -25,7 +25,7 @@ namespace src.Api.Service.Test.Filme
             Assert.Equal(result.Id, IdFilme);
             Assert.Equal(result.Titulo, TituloFilme);
             Assert.Equal(result.Categoria, CategoriaFilme);
-            Assert.Equal(result.Cadastrador, CadastradorFilme);
+            Assert.Equal(result.Funcionario, CadastradorFilme);
             Assert.Equal(result.QtdLocacao, QtdLocacaoFilme);            
             Assert.True(result.CreateAt != null);
             Assert.True(result.UpdateAt != null);            

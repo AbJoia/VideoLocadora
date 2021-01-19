@@ -4,28 +4,8 @@ using src.Api.Domain.Enuns;
 
 namespace src.Api.Domain.Model
 {
-    public class UsuarioModel
-    {
-        private Guid id;
-        public Guid Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-        
-        private DateTime createAt;
-        public DateTime CreateAt
-        {
-            get { return createAt; }
-            set { createAt = value == null? DateTime.UtcNow : value; }
-        }
-        
-        private DateTime updateAt;
-        public DateTime UpdateAt
-        {
-            get { return updateAt; }
-            set { updateAt = value; }
-        }
+    public class UsuarioModel : BaseModel
+    {     
         
         private string nome;
         public string Nome
@@ -45,14 +25,8 @@ namespace src.Api.Domain.Model
         public TipoUsuario TipoUsuario
         {
             get { return tipoUsuario; }
-            set { tipoUsuario = value; }
-        }
-        
-        private IEnumerable<FilmeModel> filmesAlugados;
-        public IEnumerable<FilmeModel> FilmesAlugados
-        {
-            get { return filmesAlugados; }
-            set { filmesAlugados = value; }
-        }        
+            set {tipoUsuario = Enum.GetNames(typeof(TipoUsuario))
+                                   .Equals(value)? TipoUsuario.CLIENTE : value;}
+        }               
     }
 }

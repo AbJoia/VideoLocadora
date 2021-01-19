@@ -40,7 +40,6 @@ namespace src.Api.Data.Test
                 Assert.Equal(insertResult.Email, usuario.Email);
                 Assert.Equal(insertResult.TipoUsuario, usuario.TipoUsuario);
                 Assert.IsType<TipoUsuario>(usuario.TipoUsuario);                
-                Assert.Null(usuario.FilmesAlugados);
 
                 //Update                
                 usuario.Nome = Faker.Name.FullName();

@@ -11,6 +11,6 @@ namespace src.Api.Domain.Dtos.Filme
         public DateTime CreateAt { get; set; }
         public string Titulo { get; set; }
         public Categoria Categoria { get; set; }
-        public FuncionarioDtoGetResult Cadastrador { get; set; }
+        public FuncionarioDtoGetResult Funcionario { get; set; }
     }
 }

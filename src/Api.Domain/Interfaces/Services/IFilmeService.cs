@@ -7,11 +7,10 @@ namespace src.Api.Domain.Interfaces.Services
 {
     public interface IFilmeService 
     {
-        Task<FilmeDtoCreateResult> PostAsync (FilmeDto filme, Guid cadastrador);
-        Task<FilmeDtoUpdateResult> PutAsync (FilmeDtoUpdate filme, Guid cadastrador);
+        Task<FilmeDtoCreateResult> PostAsync (FilmeDto filme);
+        Task<FilmeDtoUpdateResult> PutAsync (FilmeDtoUpdate filme);
         Task<FilmeDtoGetResult> GetAsync (Guid id);
         Task<IEnumerable<FilmeDtoGetResult>> GetAllAsync ();
-        Task<bool> DeleteAsync (Guid id);
-        Task<FilmeDtoLocacaoResult> AluguelFilmeAsync (Guid IdLocatario, Guid IdFilme);       
+        Task<bool> DeleteAsync (Guid id);              
     }
 }

@@ -13,6 +13,6 @@ namespace src.Api.Domain.Dtos.Filme
         public string Titulo { get; set; }
         public Categoria Categoria { get; set; }
         public int QtdLocacao { get; set; }
-        public FuncionarioDtoGetResult Cadastrador { get; set; }
+        public FuncionarioDtoGetResult Funcionario { get; set; }
     }
 }

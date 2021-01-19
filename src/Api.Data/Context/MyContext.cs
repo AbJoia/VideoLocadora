@@ -6,9 +6,10 @@ namespace src.Api.Data.Context
 {
     public class MyContext : DbContext
     {
-        public DbSet<FilmeEntity> Filmes { get; set; }
+        public DbSet<FilmeEntity> Filme { get; set; }
         public DbSet<FuncionarioEntity> Funcionario { get; set; }
         public DbSet<UsuarioEntity> Usuario { get; set; }
+        public DbSet<AluguelEntity> Aluguel { get; set; }
 
         public MyContext(DbContextOptions<MyContext> options) : base(options)
         {            
@@ -17,8 +18,10 @@ namespace src.Api.Data.Context
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UsuarioEntity>(new UsuarioMap().Configure);
+            modelBuilder.Entity<AluguelEntity>(new AluguelMap().Configure);
+            modelBuilder.Entity<ItemAluguelEntity>(new ItemAluguelMap().Configure);
             modelBuilder.Entity<FuncionarioEntity>(new FuncionarioMap().Configure);
-            modelBuilder.Entity<FilmeEntity>(new FilmeMap().Configure);            
+            modelBuilder.Entity<FilmeEntity>(new FilmeMap().Configure);                        
         }
     }
 }
