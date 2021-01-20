@@ -84,8 +84,13 @@ namespace src.Api.Data.Test
 
                 //GetAllByUsuarioId
                 var getAllByUsuarioId = await _repository.GetAllByUsuarioId(usuario.Id);
-                Assert.NotNull(getAllByUsuarioId);
-                Assert.True(getAllByUsuarioId.Count() > 0); 
+                Assert.NotNull(getAllByUsuarioId);                                
+                Assert.True(getAllByUsuarioId.Count() > 0);
+
+                //GetCompleteById
+                var getCompleteById = await _repository.GetCompleteById(aluguel.Id);
+                Assert.NotNull(getCompleteById); 
+                Assert.NotNull(getCompleteById.ItensAluguel);  
 
                 //Delete
                 var deleteResult = await _repository.DeleteAsync(aluguel.Id);                

@@ -28,7 +28,24 @@ namespace src.Api.Data.Implementation
             try
             {
                 if(usuarioId == null) return null;
-                var result = await _dataSet.Where(a => a.Usuario.Id == usuarioId).ToListAsync();
+                var result = await _dataSet.Where(a => a.Usuario.Id == usuarioId)
+                                           .ToListAsync();
+                if(result == null) return null;
+                return result;
+            }
+            catch (Exception e)
+            {                
+                throw e;
+            }
+        }
+
+        public async Task<AluguelEntity> GetCompleteById(Guid id)
+        {
+            try
+            {
+                if(id == default(Guid)) return null;
+                var result = await _dataSet.Include(a => a.ItensAluguel)
+                                           .SingleOrDefaultAsync(a => a.Id.Equals(id));
                 if(result == null) return null;
                 return result;
             }
