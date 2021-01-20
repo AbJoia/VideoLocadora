@@ -9,7 +9,7 @@ namespace src.Api.Domain.Interfaces.Repositories
     public interface IAluguelRepository : IRepository<AluguelEntity>
     {
         Task<AluguelEntity> RealizarAluguel (AluguelEntity aluguel);
-
         Task<IEnumerable<AluguelEntity>> GetAllByUsuarioId (Guid usuarioId);
+        Task<AluguelEntity> GetCompleteById (Guid id);
     }
 }
