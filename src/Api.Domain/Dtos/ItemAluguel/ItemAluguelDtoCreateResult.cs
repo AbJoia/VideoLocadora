@@ -3,7 +3,7 @@ using src.Api.Domain.Dtos.Filme;
 
 namespace src.Api.Domain.Dtos.ItemAluguel
 {
-    public class ItemAluguelDtoResult
+    public class ItemAluguelDtoCreateResult
     {
         public Guid Id { get; set; }
         public DateTime Createat { get; set; }

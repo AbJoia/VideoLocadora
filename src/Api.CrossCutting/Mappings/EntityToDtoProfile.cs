@@ -1,6 +1,8 @@
 using AutoMapper;
+using src.Api.Domain.Dtos.Aluguel;
 using src.Api.Domain.Dtos.Filme;
 using src.Api.Domain.Dtos.Funcionario;
+using src.Api.Domain.Dtos.ItemAluguel;
 using src.Api.Domain.Dtos.Usuario;
 using src.Api.Domain.Entities;
 
@@ -48,7 +50,25 @@ namespace src.Api.CrossCutting.Mappings
             CreateMap<FilmeEntity, FilmeDtoUpdateResult>()
                     .ReverseMap();
             CreateMap<FilmeEntity, FilmeDtoLocacaoResult>()
-                    .ReverseMap();        
+                    .ReverseMap();
+        
+            //Aluguel Mapping
+            CreateMap<AluguelEntity, AluguelDtoCreateResult>()
+                    .ReverseMap();
+            CreateMap<AluguelEntity, AluguelDtoGetResult>()
+                    .ReverseMap();            
+            CreateMap<AluguelEntity, AluguelDtoUpdateResult>()
+                    .ReverseMap();
+            CreateMap<AluguelEntity, AluguelDtoCompleteResult>()
+                    .ReverseMap();    
+        
+            //ItemAluguel Mapping
+            CreateMap<ItemAluguelEntity, ItemAluguelDtoCreateResult>()
+                    .ReverseMap();
+            CreateMap<ItemAluguelEntity, ItemAluguelDtoGetResult>()
+                    .ReverseMap();            
+            CreateMap<ItemAluguelEntity, ItemAluguelDtoUpdateResult>()
+                    .ReverseMap();     
         }        
     }
 }
