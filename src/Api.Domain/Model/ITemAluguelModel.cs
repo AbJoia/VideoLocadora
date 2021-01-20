@@ -2,7 +2,7 @@ using System;
 
 namespace src.Api.Domain.Model
 {
-    public class ITemAluguelModel : BaseModel
+    public class ItemAluguelModel : BaseModel
     {
         private Guid aluguelId;
         public Guid AluguelId
