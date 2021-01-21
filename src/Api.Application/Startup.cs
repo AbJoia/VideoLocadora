@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using src.Api.CrossCutting.DependencyInjection;
 using src.Api.CrossCutting.Mappings;
 
@@ -30,6 +31,7 @@ namespace Api.Application
         {
             services.AddControllers();
             ConfigureRepository.ConfigureDependenciesRepository(services);
+            ConfigureService.ConfigureDependenciesServices(services);
 
             //AutoMapper
             var config = new AutoMapper.MapperConfiguration(cfg => {
@@ -38,7 +40,24 @@ namespace Api.Application
                 cfg.AddProfile(new ModelToEntityProfile());
             });
             IMapper mapper = config.CreateMapper();
-            services.AddSingleton(mapper);            
+            services.AddSingleton(mapper);
+
+            //Swagger
+            services.AddSwaggerGen(c => {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Vídeo Locadora API",
+                    Description = "Sistema de gerenciamento básico de Vídeo Locadora "
+                                  +"com controle de locações, " 
+                                  +"cadastros de Funcionários, Clientes e Filmes.",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Abner Joia",
+                        Email = "xxxxxx@gmail.com"                        
+                    }
+                });
+            });          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +67,12 @@ namespace Api.Application
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Vídeo Locadora API");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 

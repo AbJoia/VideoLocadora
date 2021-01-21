@@ -38,7 +38,7 @@ namespace src.Api.Service.Services
         public async Task<FilmeDtoGetResult> GetAsync(Guid id)
         {
             if(id == default(Guid)) return null;
-            var result = await _repository.SelectAsync();
+            var result = await _repository.SelectAsync(id);
             if(result == null) return null;
             return _mapper.Map<FilmeDtoGetResult>(result);
         }
