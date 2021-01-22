@@ -24,11 +24,11 @@ namespace src.Api.Service.Test.Aluguel
             var result = await _service.GetCompleteByIdAsync(AluguelId);
             Assert.NotNull(result);
             Assert.NotNull(result.Usuario);
-            Assert.NotNull(result.Itens);
-            Assert.Equal(result.AluguelId, AluguelId);
+            Assert.NotNull(result.ItensAluguel);
+            Assert.Equal(result.Id, AluguelId);
             Assert.Equal(result.DataDevolucao, DataDevolucao);
             Assert.Equal(result.Usuario.Id, UsuarioId);
-            Assert.Equal(result.Itens.Count(), aluguelDtoCompleteResult.Itens.Count());
+            Assert.Equal(result.ItensAluguel.Count(), aluguelDtoCompleteResult.ItensAluguel.Count());
 
             result = await _service.GetCompleteByIdAsync(Guid.NewGuid());
             Assert.Null(result); 

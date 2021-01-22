@@ -40,7 +40,7 @@ namespace src.Api.Data.Test
                 var aluguel = new AluguelEntity
                 {
                     UsuarioId = usuario.Id,
-                    DataDevolução = DateTime.UtcNow.AddHours(72.0),
+                    DataDevolucao = DateTime.UtcNow.AddHours(72.0),
                 };
 
                 //Post
@@ -48,7 +48,7 @@ namespace src.Api.Data.Test
                 Assert.NotNull(postResult);
                 Assert.True(postResult.UsuarioId != default(Guid));
                 Assert.Equal(aluguel.UsuarioId, usuario.Id);
-                Assert.Equal(postResult.DataDevolução, aluguel.DataDevolução);
+                Assert.Equal(postResult.DataDevolucao, aluguel.DataDevolucao);
                 Assert.True(aluguel.Id != default(Guid));
                 Assert.True(postResult.CreateAt != default(DateTime));
 
@@ -57,24 +57,24 @@ namespace src.Api.Data.Test
                 Assert.NotNull(postResult);
                 Assert.True(postResult.UsuarioId != default(Guid));
                 Assert.Equal(aluguel.UsuarioId, usuario.Id);
-                Assert.Equal(postResult.DataDevolução, aluguel.DataDevolução);
+                Assert.Equal(postResult.DataDevolucao, aluguel.DataDevolucao);
                 Assert.True(aluguel.Id != default(Guid));
                 Assert.True(postResult.CreateAt != default(DateTime));
 
                 //Put
                 aluguel.Id = postResult.Id;
-                aluguel.DataDevolução = DateTime.UtcNow.AddHours(120.0);                
+                aluguel.DataDevolucao = DateTime.UtcNow.AddHours(120.0);                
                 var putResult = await _repository.UpdateAsync(aluguel);
                 Assert.NotNull(putResult);
                 Assert.Equal(putResult.Id, aluguel.Id);
-                Assert.Equal(putResult.DataDevolução, aluguel.DataDevolução);
+                Assert.Equal(putResult.DataDevolucao, aluguel.DataDevolucao);
                 Assert.True(putResult.UpdateAt.CompareTo(postResult.CreateAt) > 0);
 
                 //Get
                 var getResult = await _repository.SelectAsync(aluguel.Id);
                 Assert.NotNull(getResult);
                 Assert.Equal(getResult.Id, aluguel.Id);
-                Assert.Equal(getResult.DataDevolução, aluguel.DataDevolução);
+                Assert.Equal(getResult.DataDevolucao, aluguel.DataDevolucao);
 
                 //GetAll
                 var getAll = await _repository.SelectAsync();

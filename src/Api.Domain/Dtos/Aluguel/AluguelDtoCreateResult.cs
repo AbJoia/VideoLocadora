@@ -8,7 +8,7 @@ namespace src.Api.Domain.Dtos.Aluguel
 {
     public class AluguelDtoCreateResult    
     {
-        public Guid AluguelId { get; set; }
+        public Guid Id { get; set; }
         public DateTime CreateAt { get; set; }
         public UsuarioDtoGetResult Usuario { get; set; }       
         public DateTime DataDevolucao { get; set; }

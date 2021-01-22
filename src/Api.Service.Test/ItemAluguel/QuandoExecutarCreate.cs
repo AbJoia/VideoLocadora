@@ -22,7 +22,7 @@ namespace src.Api.Service.Test.ItemAluguel
             var result = await _service.PostItemAluguelAsync(itemAluguelDto);
             Assert.NotNull(result);
             Assert.NotNull(result.Filme);
-            Assert.True(result.Createat != null);
+            Assert.True(result.CreateAt != null);
             Assert.Equal(result.Id, ItemAluguelId);
             Assert.Equal(result.AluguelId, AluguelId);
             Assert.Equal(result.Filme.Id, FilmeId);

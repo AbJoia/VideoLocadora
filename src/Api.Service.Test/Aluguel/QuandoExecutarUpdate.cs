@@ -21,7 +21,7 @@ namespace src.Api.Service.Test.Aluguel
 
             var result = await _service.PutAluguelAsync(aluguelDtoUpdate);
             Assert.NotNull(result);
-            Assert.Equal(result.AluguelId, AluguelId);
+            Assert.Equal(result.Id, AluguelId);
             Assert.NotEqual(result.DataDevolucao, DataDevolucao);
             Assert.NotEqual(result.Usuario.Id, UsuarioId);
 

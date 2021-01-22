@@ -7,9 +7,9 @@ namespace src.Api.Domain.Dtos.Aluguel
 {
     public class AluguelDtoCompleteResult
     {
-        public Guid AluguelId { get; set; }
+        public Guid Id { get; set; }
         public UsuarioDtoGetResult Usuario { get; set; }
-        public IEnumerable<ItemAluguelDtoGetResult> Itens { get; set; }
+        public IEnumerable<ItemAluguelDtoGetResult> ItensAluguel { get; set; }
         public DateTime DataDevolucao { get; set; }
     }
 }

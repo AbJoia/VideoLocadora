@@ -74,7 +74,7 @@ namespace src.Api.Data.Test
                     new AluguelEntity
                     {
                         UsuarioId = cliente.Id,
-                        DataDevolução = DateTime.UtcNow.AddHours(72.0),
+                        DataDevolucao = DateTime.UtcNow.AddHours(72.0),
                     }
                 );
 

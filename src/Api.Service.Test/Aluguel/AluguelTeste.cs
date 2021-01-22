@@ -42,7 +42,7 @@ namespace src.Api.Service.Test.Aluguel
 
             aluguelDtoCreateResult = new AluguelDtoCreateResult
             {
-                AluguelId = AluguelId,                
+                Id = AluguelId,                
                 DataDevolucao = DataDevolucao,                
                 CreateAt = DateTime.UtcNow,
                 Usuario = new UsuarioDtoGetResult
@@ -56,9 +56,9 @@ namespace src.Api.Service.Test.Aluguel
 
             aluguelDtoCompleteResult = new AluguelDtoCompleteResult
             {
-                AluguelId = AluguelId,
+                Id = AluguelId,
                 DataDevolucao = DataDevolucao,
-                Itens = GetItensAluguel(new Random().Next(2, 4)),
+                ItensAluguel = GetItensAluguel(new Random().Next(2, 4)),
                 Usuario = new UsuarioDtoGetResult
                     {
                         Id = UsuarioId,
@@ -70,7 +70,7 @@ namespace src.Api.Service.Test.Aluguel
 
             aluguelDtoGetResult = new AluguelDtoGetResult
             {
-                AluguelId = AluguelId,
+                Id = AluguelId,
                 DataDevolucao = DataDevolucao,
                 Usuario = new UsuarioDtoGetResult
                     {
@@ -90,7 +90,7 @@ namespace src.Api.Service.Test.Aluguel
 
             aluguelDtoUpdateResult = new AluguelDtoUpdateResult
             {
-                AluguelId = AluguelId,
+                Id = AluguelId,
                 DataDevolucao = DataDevolucaoAlterado,
                 Usuario = new UsuarioDtoGetResult
                 {
@@ -111,7 +111,7 @@ namespace src.Api.Service.Test.Aluguel
                 list.Add(
                     new AluguelDtoGetResult
                     {
-                        AluguelId = AluguelId,
+                        Id = AluguelId,
                         DataDevolucao = DataDevolucao,
                         Usuario = new UsuarioDtoGetResult
                             {

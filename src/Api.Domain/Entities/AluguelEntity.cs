@@ -14,6 +14,6 @@ namespace src.Api.Domain.Entities
         [Required]
         public IEnumerable<ItemAluguelEntity> ItensAluguel { get; set; }
 
-        public DateTime DataDevolução { get; set; }
+        public DateTime DataDevolucao { get; set; }
     }
 }

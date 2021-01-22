@@ -50,7 +50,7 @@ namespace src.Api.Service.Test.ItemAluguel
                 Id = ItemAluguelId,
                 Filme = FilmeOriginal,
                 AluguelId = AluguelId,
-                Createat = DateTime.UtcNow
+                CreateAt = DateTime.UtcNow
             };
 
             dtoGetResult = new ItemAluguelDtoGetResult

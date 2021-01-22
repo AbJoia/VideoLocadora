@@ -20,6 +20,14 @@ namespace src.Api.CrossCutting.Mappings
             CreateMap<FilmeModel, FilmeEntity>()
                     .ReverseMap();
             
+            //Aluguel Mapping
+            CreateMap<AluguelModel, AluguelEntity>()
+                    .ReverseMap();
+            
+            //ItemAluguel Mapping
+            CreateMap<ItemAluguelModel, ItemAluguelEntity>()
+                    .ReverseMap();
+            
         }
     }
 }

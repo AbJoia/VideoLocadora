@@ -60,7 +60,7 @@ namespace src.Api.Application.Controllers
                 var result = await _service.PostAluguelAsync(aluguel);
                 if(result == null) return BadRequest();
                 return Created(new Uri(Url.Link("GET-COMPLETE-ID", 
-                               new {Id = result.AluguelId})), result);
+                               new {Id = result.Id})), result);
             }
             catch (ArgumentException e)
             {                

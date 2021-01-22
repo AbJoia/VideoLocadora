@@ -22,7 +22,7 @@ namespace src.Api.Service.Test.Aluguel
 
             var result = await _service.PostAluguelAsync(aluguelDto);
             Assert.NotNull(result);
-            Assert.Equal(result.AluguelId, AluguelId);
+            Assert.Equal(result.Id, AluguelId);
             Assert.Equal(result.DataDevolucao, DataDevolucao);
             Assert.NotNull(result.Usuario);
             Assert.IsType<UsuarioDtoGetResult>(result.Usuario);
