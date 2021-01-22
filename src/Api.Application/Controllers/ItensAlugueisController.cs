@@ -25,8 +25,7 @@ namespace src.Api.Application.Controllers
             try
             {
                 if(!ModelState.IsValid) return BadRequest();
-                var result = await _service.GetAllItensByAluguelIdAsync(aluguelId);
-                if(result == null) return NotFound();
+                var result = await _service.GetAllItensByAluguelIdAsync(aluguelId);                
                 return Ok(result);
             }
             catch (ArgumentException e)

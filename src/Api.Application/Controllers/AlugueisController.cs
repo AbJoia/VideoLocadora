@@ -9,11 +9,11 @@ namespace src.Api.Application.Controllers
 {
     [ApiController]
     [Route("video-locadora/[controller]")]
-    public class AluguelController : ControllerBase
+    public class AlugueisController : ControllerBase
     {
         private readonly IAluguelService _service;
 
-        public AluguelController(IAluguelService service)
+        public AlugueisController(IAluguelService service)
         {
             _service = service;
         }

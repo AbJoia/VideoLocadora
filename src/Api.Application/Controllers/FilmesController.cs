@@ -24,8 +24,7 @@ namespace src.Api.Application.Controllers
             try
             {
                 if(!ModelState.IsValid) return BadRequest();
-                var result = await _service.GetAllAsync();
-                if(result.Count() == 0) return NotFound("Lista Vazia");
+                var result = await _service.GetAllAsync();                
                 return Ok(result);
             }
             catch (ArgumentException e)

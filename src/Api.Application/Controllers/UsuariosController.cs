@@ -24,8 +24,7 @@ namespace src.Api.Application.Controllers
             try
             {
                 if(!ModelState.IsValid) return BadRequest();
-                var result = await _service.GetAllAsync();
-                if(result.Count() == 0) return NotFound("Lista Vazia");
+                var result = await _service.GetAllAsync();                
                 return Ok(result);
             }
             catch (ArgumentException e)
@@ -52,7 +51,7 @@ namespace src.Api.Application.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post ([FromBody] UsuarioDto usuario)
+        public async Task<IActionResult> Post([FromBody] UsuarioDto usuario)
         {
             try
             {
@@ -91,7 +90,7 @@ namespace src.Api.Application.Controllers
             {
                 if(!ModelState.IsValid) return BadRequest();
                 var result = await _service.DeleteAsync(id);
-                if(!result) return NotFound();
+                if(!result) return NotFound("Não Foi Possível Deletar.");
                 return Ok(result);
             }
             catch (ArgumentException e)
