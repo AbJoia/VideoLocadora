@@ -19,12 +19,14 @@ namespace Api.Application
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            _environment = environment;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment _environment { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -32,6 +34,17 @@ namespace Api.Application
             services.AddControllers();
             ConfigureRepository.ConfigureDependenciesRepository(services);
             ConfigureService.ConfigureDependenciesServices(services);
+
+            //Integration Test
+            if(_environment.IsEnvironment("IntegrationTest"))
+            {
+                Environment.SetEnvironmentVariable("DB_CONNECTION", 
+                            "Server=localhost;"
+                            +"Port=3306;"
+                            +"Database=video_locadora_api_integration_test;"
+                            +"Uid=root;"
+                            +"Pwd=admin123");
+            }
 
             //AutoMapper
             var config = new AutoMapper.MapperConfiguration(cfg => {

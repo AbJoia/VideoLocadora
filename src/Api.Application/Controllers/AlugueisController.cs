@@ -19,7 +19,7 @@ namespace src.Api.Application.Controllers
         }
 
         [HttpGet]
-        [Route("GetAllByUsuarioId")]
+        [Route("GetAllByUsuarioId/{usuarioId}")]
         public async Task<IActionResult> GetAllByUsuarioId(Guid usuarioId)
         {
             try
@@ -60,7 +60,7 @@ namespace src.Api.Application.Controllers
                 var result = await _service.PostAluguelAsync(aluguel);
                 if(result == null) return BadRequest();
                 return Created(new Uri(Url.Link("GET-COMPLETE-ID", 
-                               new {Id = result.Id})), result);
+                               new {aluguelId = result.Id})), result);
             }
             catch (ArgumentException e)
             {                

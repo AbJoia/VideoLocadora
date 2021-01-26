@@ -43,7 +43,7 @@ namespace src.Api.Application.Controllers
                 var result = await _service.PostItemAluguelAsync(itemAluguel);
                 if(result == null) return BadRequest();
                 return Created(new Uri(Url.Link("GET-ITENS-ALUGUEL-ID", 
-                               new {Id = result.AluguelId})),result);
+                               new {aluguelId = result.AluguelId})),result);
             }
             catch (ArgumentException e)
             {
