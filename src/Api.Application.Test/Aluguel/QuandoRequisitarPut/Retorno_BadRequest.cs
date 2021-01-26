@@ -28,15 +28,7 @@ namespace src.Api.Application.Test.Aluguel.QuandoRequisitarPut
                                 Id = Guid.NewGuid(),                                
                                 UpdateAt = DateTime.UtcNow,
                                 DataDevolucao = DateTime.UtcNow.AddHours(72.0),
-                                Usuario = new UsuarioDtoGetResult
-                                {
-                                    Id = Guid.NewGuid(),
-                                    Email = Faker.Internet.Email(),
-                                    Nome = Faker.Name.FullName(),
-                                    CreateAt = DateTime.UtcNow,
-                                    TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE,
-                                    UpdateAt = DateTime.UtcNow.AddHours(2.0),  
-                                }                                                              
+                                UsuarioId = Guid.NewGuid()                                                              
                             }
                         );
             _controller = new AlugueisController(_serviceMock.Object);

@@ -28,12 +28,7 @@ namespace src.Api.Application.Test.ItemAluguel.QuandoRequisitarPut
                             {
                                 Id = Guid.NewGuid(),
                                 UpdateAt = DateTime.UtcNow,                                
-                                Filme = new FilmeDtoLocacaoResult
-                                {
-                                    Id = Guid.NewGuid(),
-                                    Titulo = Faker.Country.Name(),
-                                    Categoria = Domain.Enuns.Categoria.BIOGRAFIA,
-                                }                                                               
+                                FilmeId = Guid.NewGuid()                                                              
                             }
                         );
             _controller = new ItensAlugueisController(_serviceMock.Object);

@@ -55,14 +55,11 @@ namespace src.Api.Application.Test.Aluguel.QuandoRequisitarGetCompleteById
                                     }    
                                 },
                                 
-                                Usuario = new UsuarioDtoGetResult
+                                Usuario = new UsuarioDtoLocacaoResult
                                 {
                                     Id = Guid.NewGuid(),
                                     Email = Faker.Internet.Email(),
-                                    Nome = Faker.Name.FullName(),
-                                    TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE,
-                                    CreateAt = DateTime.UtcNow,
-                                    UpdateAt = DateTime.UtcNow.AddHours(2.0),
+                                    Nome = Faker.Name.FullName(),                                    
                                 },
                                 DataDevolucao = DateTime.UtcNow.AddHours(72.0)
                             });
