@@ -43,6 +43,7 @@ namespace src.Api.Service.Services
         public async Task<UsuarioDtoCreateResult> PostAsync(UsuarioDto usuario)
         {
             var model = _mapper.Map<UsuarioModel>(usuario);
+            model.TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE;
             var entity = _mapper.Map<UsuarioEntity>(model);
             var result = await _repository.InsertAsync(entity);
             if(result == null) return null;
@@ -52,6 +53,7 @@ namespace src.Api.Service.Services
         public async Task<UsuarioDtoUpdateResult> PutAsync(UsuarioDtoUpdate usuario)
         {
             var model = _mapper.Map<UsuarioModel>(usuario);
+            model.TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE;
             var entity = _mapper.Map<UsuarioEntity>(model);
             var result = await _repository.UpdateAsync(entity);
             if(result == null) return null;

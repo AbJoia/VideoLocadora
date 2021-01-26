@@ -46,7 +46,7 @@ namespace src.Api.Service.Services
             if(aluguel == null) return null;
             var model = _mapper.Map<AluguelModel>(aluguel);
             var entity = _mapper.Map<AluguelEntity>(model);
-            var result = await _repository.RealizarAluguel(entity);
+            var result = await _repository.RealizarAluguel(entity);            
             return _mapper.Map<AluguelDtoCreateResult>(result);
         }
 
