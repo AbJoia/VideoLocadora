@@ -20,6 +20,5 @@ namespace src.Api.Domain.Dtos.Funcionario
         [Required(ErrorMessage = "Campo senha é obrigatório.")]
         [StringLength(6, ErrorMessage = "Campo senha deve ter no máximo {1} caracteres.")]       
         public string Senha { get; set; }
-
     }
 }

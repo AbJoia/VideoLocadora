@@ -7,6 +7,6 @@ namespace src.Api.Domain.Dtos.ItemAluguel
     {
         public Guid Id { get; set; }
         public DateTime UpdateAt { get; set; }
-        public FilmeDtoLocacaoResult Filme {get; set;}
+        public Guid FilmeId {get; set;}
     }
 }

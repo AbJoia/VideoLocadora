@@ -15,7 +15,7 @@ namespace src.Api.Domain.Model
         public DateTime DataDevolucao
         {
             get { return dataDevolucao; }
-            set { dataDevolucao = value == null? DateTime.UtcNow.AddHours(72.0) : value;}
+            set { dataDevolucao = value == default(DateTime)? DateTime.UtcNow.AddHours(72.0) : value;}
         }       
     }
 }

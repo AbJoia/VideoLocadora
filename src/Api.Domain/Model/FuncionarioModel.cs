@@ -26,8 +26,7 @@ namespace src.Api.Domain.Model
         public TipoUsuario TipoUsuario
         {
             get { return tipoUsuario; }
-            set { tipoUsuario = Enum.GetNames(typeof(TipoUsuario))
-                                    .Equals(value)? TipoUsuario.FUNCIONARIO : value;}
+            set { tipoUsuario = value;}
         }
 
         private long matricula;
