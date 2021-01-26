@@ -9,8 +9,8 @@ using src.Api.Data.Context;
 namespace Api.Data.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20210119140255_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20210126122110_FirstMigrations")]
+    partial class FirstMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,7 @@ namespace Api.Data.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DataDevolução")
+                    b.Property<DateTime>("DataDevolucao")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("UpdateAt")

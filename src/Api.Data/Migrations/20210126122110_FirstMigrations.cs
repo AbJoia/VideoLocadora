@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Api.Data.Migrations
 {
-    public partial class FirstMigration : Migration
+    public partial class FirstMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,7 +34,7 @@ namespace Api.Data.Migrations
                     CreateAt = table.Column<DateTime>(nullable: false),
                     UpdateAt = table.Column<DateTime>(nullable: false),
                     UsuarioId = table.Column<Guid>(nullable: false),
-                    DataDevolução = table.Column<DateTime>(nullable: false)
+                    DataDevolucao = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

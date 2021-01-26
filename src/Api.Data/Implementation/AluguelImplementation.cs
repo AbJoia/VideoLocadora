@@ -28,7 +28,8 @@ namespace src.Api.Data.Implementation
             try
             {
                 if(usuarioId == null) return null;
-                var result = await _dataSet.Where(a => a.Usuario.Id == usuarioId)
+                var result = await _dataSet.Include(a => a.Usuario)
+                                           .Where(a => a.Usuario.Id == usuarioId)
                                            .ToListAsync();
                 if(result == null) return null;
                 return result;
@@ -44,7 +45,8 @@ namespace src.Api.Data.Implementation
             try
             {
                 if(id == default(Guid)) return null;
-                var result = await _dataSet.Include(a => a.ItensAluguel)
+                var result = await _dataSet.Include(a => a.Usuario)
+                                           .Include(a => a.ItensAluguel)
                                            .SingleOrDefaultAsync(a => a.Id.Equals(id));
                 if(result == null) return null;
                 return result;

@@ -26,7 +26,7 @@ namespace Api.Data.Migrations
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DataDevolução")
+                    b.Property<DateTime>("DataDevolucao")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("UpdateAt")
