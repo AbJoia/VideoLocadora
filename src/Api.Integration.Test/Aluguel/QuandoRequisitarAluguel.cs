@@ -105,7 +105,8 @@ namespace src.Api.Integration.Test.Aluguel
             Assert.Equal(getComplete.Usuario.Id, usuarioResultUpdate.Id);
             Assert.Equal(getComplete.Usuario.Nome, usuarioResultUpdate.Nome);
             Assert.Equal(getComplete.Usuario.Email, usuarioResultUpdate.Email);                       
-            Assert.NotNull(getComplete.ItensAluguel);
+            Assert.NotNull(getComplete.ItensAluguel); 
+            Assert.NotNull(getComplete.ItensAluguel.Where(i => i.Filme != null));           
             #endregion       
 
             #region Delete

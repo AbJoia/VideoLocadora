@@ -47,6 +47,7 @@ namespace src.Api.Data.Implementation
                 if(id == default(Guid)) return null;
                 var result = await _dataSet.Include(a => a.Usuario)
                                            .Include(a => a.ItensAluguel)
+                                           .ThenInclude(i => i.Filme)                                           
                                            .SingleOrDefaultAsync(a => a.Id.Equals(id));
                 if(result == null) return null;
                 return result;
