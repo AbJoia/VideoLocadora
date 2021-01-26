@@ -73,6 +73,18 @@
                 "/consoleloggerparameters:NoSummary"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Api.Integration.Test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",                
+                "${workspaceFolder}/src/Api.Integration.Test/Api.Integration.Test.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
         }
     ]
 }
