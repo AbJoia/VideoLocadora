@@ -24,8 +24,8 @@ namespace src.Api.Service.Test.Aluguel
             Assert.NotNull(result);
             Assert.Equal(result.Id, AluguelId);
             Assert.Equal(result.DataDevolucao, DataDevolucao);
-            Assert.NotNull(result.Usuario);
-            Assert.IsType<UsuarioDtoGetResult>(result.Usuario);
+            Assert.Equal(result.UsuarioId, UsuarioId);
+            
 
             _serviceMock = new Mock<IAluguelService>();
             _serviceMock.Setup(m => m.PostAluguelAsync(It.IsAny<AluguelDto>()))

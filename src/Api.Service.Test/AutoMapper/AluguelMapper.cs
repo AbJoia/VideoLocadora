@@ -30,10 +30,10 @@ namespace src.Api.Service.Test.AutoMapper
                     Id = Guid.NewGuid(),
                     Nome = Faker.Name.FullName(),
                     Email = Faker.Internet.Email(),
-                    TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE,
                     CreateAt = DateTime.UtcNow,
-                    UpdateAt = DateTime.UtcNow.AddHours(2.0)  
-                };
+                    TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE,
+                    UpdateAt = DateTime.UtcNow.AddHours(12.0)
+                }; 
 
                 var filme = new FilmeEntity
                 {
@@ -57,7 +57,7 @@ namespace src.Api.Service.Test.AutoMapper
                         CreateAt = DateTime.UtcNow,
                         DataDevolucao = DateTime.UtcNow.AddHours(72.0),
                         UpdateAt = DateTime.UtcNow.AddHours(2.0),
-                        Usuario = usuario,
+                        Usuario = usuario,                        
                         ItensAluguel = new List<ItemAluguelEntity>()
                         {
                             new ItemAluguelEntity
@@ -91,23 +91,18 @@ namespace src.Api.Service.Test.AutoMapper
 
             //Entity => Dtos
             var dtoCreateResult = Mapper.Map<AluguelDtoCreateResult>(listAluguel[0]);
-            Assert.NotNull(dtoCreateResult);
-            Assert.NotNull(dtoCreateResult.Usuario);
+            Assert.NotNull(dtoCreateResult);            
             Assert.Equal(dtoCreateResult.Id, listAluguel[0].Id);
-            Assert.Equal(dtoCreateResult.Usuario.Id, listAluguel[0].UsuarioId);
+            Assert.Equal(dtoCreateResult.UsuarioId, listAluguel[0].UsuarioId);
             Assert.Equal(dtoCreateResult.CreateAt, listAluguel[0].CreateAt);            
             Assert.Equal(dtoCreateResult.DataDevolucao, listAluguel[0].DataDevolucao);
 
             var dtoGetResult = Mapper.Map<AluguelDtoGetResult>(listAluguel[0]);
-            Assert.NotNull(dtoGetResult);
-            Assert.NotNull(dtoGetResult.Usuario);
+            Assert.NotNull(dtoGetResult);            
             Assert.Equal(dtoGetResult.Id, listAluguel[0].Id);
             Assert.Equal(dtoGetResult.Usuario.Id, listAluguel[0].UsuarioId);
             Assert.Equal(dtoGetResult.Usuario.Nome, listAluguel[0].Usuario.Nome); 
-            Assert.Equal(dtoGetResult.Usuario.Email, listAluguel[0].Usuario.Email);  
-            Assert.Equal(dtoGetResult.Usuario.TipoUsuario, listAluguel[0].Usuario.TipoUsuario);
-            Assert.Equal(dtoGetResult.Usuario.CreateAt, listAluguel[0].Usuario.CreateAt); 
-            Assert.Equal(dtoGetResult.Usuario.UpdateAt, listAluguel[0].Usuario.UpdateAt);                                     
+            Assert.Equal(dtoGetResult.Usuario.Email, listAluguel[0].Usuario.Email);                                                
             Assert.Equal(dtoGetResult.DataDevolucao, listAluguel[0].DataDevolucao);
 
             var dtoCompleteResult = Mapper.Map<AluguelDtoCompleteResult>(listAluguel[0]);
@@ -118,10 +113,7 @@ namespace src.Api.Service.Test.AutoMapper
             Assert.Equal(dtoCompleteResult.Usuario.Id, listAluguel[0].UsuarioId);
             Assert.Equal(dtoCompleteResult.Usuario.Id, listAluguel[0].Usuario.Id);
             Assert.Equal(dtoCompleteResult.Usuario.Nome, listAluguel[0].Usuario.Nome); 
-            Assert.Equal(dtoCompleteResult.Usuario.Email, listAluguel[0].Usuario.Email);  
-            Assert.Equal(dtoCompleteResult.Usuario.TipoUsuario, listAluguel[0].Usuario.TipoUsuario);
-            Assert.Equal(dtoCompleteResult.Usuario.CreateAt, listAluguel[0].Usuario.CreateAt); 
-            Assert.Equal(dtoCompleteResult.Usuario.UpdateAt, listAluguel[0].Usuario.UpdateAt);
+            Assert.Equal(dtoCompleteResult.Usuario.Email, listAluguel[0].Usuario.Email);            
             Assert.Equal(dtoCompleteResult.DataDevolucao, listAluguel[0].DataDevolucao);
             Assert.Equal(dtoCompleteResult.ItensAluguel.Count(), listAluguel[0].ItensAluguel.Count());
 
@@ -141,15 +133,9 @@ namespace src.Api.Service.Test.AutoMapper
             }
 
             var dtoUpdateResult = Mapper.Map<AluguelDtoUpdateResult>(listAluguel[0]);
-            Assert.NotNull(dtoUpdateResult);
-            Assert.NotNull(dtoUpdateResult.Usuario);
+            Assert.NotNull(dtoUpdateResult);            
             Assert.Equal(dtoUpdateResult.Id, listAluguel[0].Id);
-            Assert.Equal(dtoUpdateResult.Usuario.Id, listAluguel[0].UsuarioId);
-            Assert.Equal(dtoUpdateResult.Usuario.Nome, listAluguel[0].Usuario.Nome); 
-            Assert.Equal(dtoUpdateResult.Usuario.Email, listAluguel[0].Usuario.Email);  
-            Assert.Equal(dtoUpdateResult.Usuario.TipoUsuario, listAluguel[0].Usuario.TipoUsuario);
-            Assert.Equal(dtoUpdateResult.Usuario.CreateAt, listAluguel[0].Usuario.CreateAt); 
-            Assert.Equal(dtoUpdateResult.Usuario.UpdateAt, listAluguel[0].Usuario.UpdateAt);                                     
+            Assert.Equal(dtoUpdateResult.UsuarioId, listAluguel[0].UsuarioId);                                              
             Assert.Equal(dtoUpdateResult.DataDevolucao, listAluguel[0].DataDevolucao);
 
             var listResult = Mapper.Map<IEnumerable<AluguelDtoGetResult>>(listAluguel);
@@ -159,10 +145,7 @@ namespace src.Api.Service.Test.AutoMapper
                 Assert.Equal(listResult.ToList()[i].Id, listAluguel[i].Id);
                 Assert.Equal(listResult.ToList()[i].Usuario.Id, listAluguel[i].UsuarioId);
                 Assert.Equal(listResult.ToList()[i].Usuario.Nome, listAluguel[i].Usuario.Nome); 
-                Assert.Equal(listResult.ToList()[i].Usuario.Email, listAluguel[i].Usuario.Email);  
-                Assert.Equal(listResult.ToList()[i].Usuario.TipoUsuario, listAluguel[i].Usuario.TipoUsuario);
-                Assert.Equal(listResult.ToList()[i].Usuario.CreateAt, listAluguel[i].Usuario.CreateAt); 
-                Assert.Equal(listResult.ToList()[i].Usuario.UpdateAt, listAluguel[i].Usuario.UpdateAt);                                     
+                Assert.Equal(listResult.ToList()[i].Usuario.Email, listAluguel[i].Usuario.Email);                                                     
                 Assert.Equal(listResult.ToList()[i].DataDevolucao, listAluguel[i].DataDevolucao); 
             }
 

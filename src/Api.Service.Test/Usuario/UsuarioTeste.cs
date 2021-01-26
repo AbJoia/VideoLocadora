@@ -65,8 +65,7 @@ namespace src.Api.Service.Test.Usuario
                Nome = NomeUsuario,
                Email = EmailUsuario,
                TipoUsuario = TipoUsuario,
-               CreateAt = CreateAtUsuario,
-               FilmesAlugados = FilmesAlugados,
+               CreateAt = CreateAtUsuario,               
                UpdateAt = DateTime.UtcNow.AddHours(2.0),
            };
 
@@ -101,8 +100,7 @@ namespace src.Api.Service.Test.Usuario
                         Id = Guid.NewGuid(),
                         Nome = Faker.Name.FullName(),
                         Email = Faker.Internet.Email(),
-                        CreateAt = DateTime.UtcNow,
-                        FilmesAlugados = GetFilmesMock(new Random().Next(0, 3)),
+                        CreateAt = DateTime.UtcNow,                        
                         TipoUsuario = TipoUsuario,
                         UpdateAt = DateTime.UtcNow.AddHours(2.0),
                     }

@@ -65,10 +65,8 @@ namespace src.Api.Service.Test.AutoMapper
             Assert.Equal(dtoCreateResult.Id, listItens[0].Id);
             Assert.Equal(dtoCreateResult.AluguelId, listItens[0].AluguelId);
             Assert.Equal(dtoCreateResult.CreateAt, listItens[0].CreateAt);
-            Assert.Equal(dtoCreateResult.Filme.Id, listItens[0].Filme.Id);
-            Assert.Equal(dtoCreateResult.Filme.Titulo, listItens[0].Filme.Titulo);
-            Assert.Equal(dtoCreateResult.Filme.Categoria, listItens[0].Filme.Categoria);
-
+            Assert.Equal(dtoCreateResult.FilmeId, listItens[0].FilmeId);
+            
             var dtoGetResult = Mapper.Map<ItemAluguelDtoGetResult>(listItens[0]);
             Assert.NotNull(dtoGetResult);
             Assert.Equal(dtoGetResult.Id, listItens[0].Id);            
@@ -90,9 +88,7 @@ namespace src.Api.Service.Test.AutoMapper
             Assert.NotNull(dtoUpdateResult);
             Assert.Equal(dtoUpdateResult.Id, listItens[0].Id);            
             Assert.Equal(dtoUpdateResult.UpdateAt, listItens[0].UpdateAt);
-            Assert.Equal(dtoUpdateResult.Filme.Id, listItens[0].Filme.Id);
-            Assert.Equal(dtoUpdateResult.Filme.Titulo, listItens[0].Filme.Titulo);
-            Assert.Equal(dtoUpdateResult.Filme.Categoria, listItens[0].Filme.Categoria);
+            Assert.Equal(dtoUpdateResult.FilmeId, listItens[0].Filme.Id);            
 
             //Dto => Model
             var dtoCreate = new ItemAluguelDto

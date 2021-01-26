@@ -23,7 +23,7 @@ namespace src.Api.Service.Test.ItemAluguel
             Assert.NotNull(result);            
             Assert.True(result.UpdateAt != null);            
             Assert.Equal(result.Id, ItemAluguelId);
-            Assert.NotEqual(result.Filme.Id, FilmeId);            
+            Assert.NotEqual(result.FilmeId, FilmeId);            
 
             _serviceMock = new Mock<IItemAluguelService>();
             _serviceMock.Setup(m => m.PutItemAluguelAsync(It.IsAny<ItemAluguelDtoUpdate>()))

@@ -45,13 +45,7 @@ namespace src.Api.Service.Test.Aluguel
                 Id = AluguelId,                
                 DataDevolucao = DataDevolucao,                
                 CreateAt = DateTime.UtcNow,
-                Usuario = new UsuarioDtoGetResult
-                    {
-                        Id = UsuarioId,
-                        Email = Faker.Internet.Email(),
-                        TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE,
-                        Nome = Faker.Name.FullName(),                        
-                    },
+                UsuarioId = UsuarioId
             }; 
 
             aluguelDtoCompleteResult = new AluguelDtoCompleteResult
@@ -59,11 +53,10 @@ namespace src.Api.Service.Test.Aluguel
                 Id = AluguelId,
                 DataDevolucao = DataDevolucao,
                 ItensAluguel = GetItensAluguel(new Random().Next(2, 4)),
-                Usuario = new UsuarioDtoGetResult
+                Usuario = new UsuarioDtoLocacaoResult
                     {
                         Id = UsuarioId,
-                        Email = Faker.Internet.Email(),
-                        TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE,
+                        Email = Faker.Internet.Email(),                        
                         Nome = Faker.Name.FullName(),                        
                     },                    
             };
@@ -72,11 +65,10 @@ namespace src.Api.Service.Test.Aluguel
             {
                 Id = AluguelId,
                 DataDevolucao = DataDevolucao,
-                Usuario = new UsuarioDtoGetResult
+                Usuario = new UsuarioDtoLocacaoResult
                     {
                         Id = UsuarioId,
-                        Email = Faker.Internet.Email(),
-                        TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE,
+                        Email = Faker.Internet.Email(),                        
                         Nome = Faker.Name.FullName(),                        
                     },
             };
@@ -92,13 +84,7 @@ namespace src.Api.Service.Test.Aluguel
             {
                 Id = AluguelId,
                 DataDevolucao = DataDevolucaoAlterado,
-                Usuario = new UsuarioDtoGetResult
-                {
-                    Id = UsuarioIdAlterado,
-                    Email = Faker.Internet.Email(),
-                    TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE,
-                    Nome = Faker.Name.FullName(),
-                }
+                UsuarioId = UsuarioIdAlterado
             };               
             
         }
@@ -113,11 +99,10 @@ namespace src.Api.Service.Test.Aluguel
                     {
                         Id = AluguelId,
                         DataDevolucao = DataDevolucao,
-                        Usuario = new UsuarioDtoGetResult
+                        Usuario = new UsuarioDtoLocacaoResult
                             {
                                 Id = UsuarioId,
-                                Email = Faker.Internet.Email(),
-                                TipoUsuario = Domain.Enuns.TipoUsuario.CLIENTE,
+                                Email = Faker.Internet.Email(),                                
                                 Nome = Faker.Name.FullName(),                        
                             },
                     }

@@ -20,12 +20,11 @@ namespace src.Api.Service.Test.ItemAluguel
             _service = _serviceMock.Object;
 
             var result = await _service.PostItemAluguelAsync(itemAluguelDto);
-            Assert.NotNull(result);
-            Assert.NotNull(result.Filme);
+            Assert.NotNull(result);            
             Assert.True(result.CreateAt != null);
             Assert.Equal(result.Id, ItemAluguelId);
             Assert.Equal(result.AluguelId, AluguelId);
-            Assert.Equal(result.Filme.Id, FilmeId);
+            Assert.Equal(result.FilmeId, FilmeId);
 
             _serviceMock = new Mock<IItemAluguelService>();
             _serviceMock.Setup(m => m.PostItemAluguelAsync(It.IsAny<ItemAluguelDto>()))

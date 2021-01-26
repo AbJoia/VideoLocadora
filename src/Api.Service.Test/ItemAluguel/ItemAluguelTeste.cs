@@ -48,7 +48,7 @@ namespace src.Api.Service.Test.ItemAluguel
             dtoCreateResult = new ItemAluguelDtoCreateResult
             {
                 Id = ItemAluguelId,
-                Filme = FilmeOriginal,
+                FilmeId = FilmeOriginal.Id,
                 AluguelId = AluguelId,
                 CreateAt = DateTime.UtcNow
             };
@@ -70,13 +70,7 @@ namespace src.Api.Service.Test.ItemAluguel
             {
                 Id = ItemAluguelId,
                 UpdateAt = DateTime.UtcNow,
-                Filme = new FilmeDtoLocacaoResult
-                {
-                    Id = dtoUpdate.FilmeId,
-                    Titulo = Faker.Country.Name(),
-                    Categoria = (Categoria) new Random()
-                                .Next(Enum.GetNames(typeof(Categoria)).Length)
-                }
+                FilmeId = Guid.NewGuid()
             };            
         }
 
