@@ -24,9 +24,8 @@ namespace src.Api.Service.Test.Filme
             Assert.NotNull(result);
             Assert.True(result.Id != Guid.Empty);
             Assert.Equal(result.Titulo, TituloFilme);
-            Assert.Equal(result.Categoria, CategoriaFilme);
-            Assert.Equal(result.Funcionario, CadastradorFilme);
-            Assert.Equal(result.Funcionario.Id, CadastradorFilme.Id);
+            Assert.Equal(result.Categoria, CategoriaFilme);            
+            Assert.Equal(result.FuncionarioId, CadastradorFilme.Id);
             Assert.True(result.CreateAt != null); 
 
             _serviceMock = new Mock<IFilmeService>();

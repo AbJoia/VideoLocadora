@@ -123,14 +123,7 @@ namespace src.Api.Service.Test.Usuario
                       QtdLocacao = Faker.RandomNumber.Next(2, 50),
                       CreateAt = DateTime.UtcNow,
                       UpdateAt = DateTime.UtcNow.AddHours(0.5),
-                      Funcionario = new FuncionarioDtoGetResult()
-                        {
-                            Id = Guid.NewGuid(),
-                            Nome = Faker.Name.FullName(),
-                            Email = Faker.Internet.Email(),
-                            CreateAt = DateTime.UtcNow,
-                            Matricula = new Random().Next(1000, 9999),
-                        }                      
+                      FuncionarioId = Guid.NewGuid()                      
                   }  
                );
            }

@@ -149,10 +149,7 @@ namespace src.Api.Integration.Test.ItemAluguel
             Assert.True(response.StatusCode == HttpStatusCode.OK);
             Assert.False(getResult.Where(i => i.Id == postItem.Id).Count() == 1);
             #endregion
-
-            
-            
-            
+           
         }
     }
 }

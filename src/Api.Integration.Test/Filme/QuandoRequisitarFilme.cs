@@ -46,7 +46,7 @@ namespace src.Api.Integration.Test.Filme
             Assert.Equal(postResult.Titulo, filmeDto.Titulo);            
             Assert.IsType<Categoria>(postResult.Categoria);            
             Assert.True(postResult.Id != default(Guid));
-            Assert.Null(postResult.Funcionario);
+            Assert.Equal(postResult.FuncionarioId, filmeDto.FuncionarioId);
 
             #endregion
 
@@ -85,7 +85,7 @@ namespace src.Api.Integration.Test.Filme
             Assert.Equal(getResult.Id, putResult.Id);
             Assert.Equal(getResult.Titulo, putResult.Titulo);            
             Assert.Equal(getResult.Categoria, putResult.Categoria);
-            Assert.Null(getResult.Funcionario);            
+            Assert.Equal(getResult.FuncionarioId, postResult.FuncionarioId);            
 
             #endregion
             

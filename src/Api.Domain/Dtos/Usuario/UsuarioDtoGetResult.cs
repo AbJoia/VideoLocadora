@@ -13,7 +13,6 @@ namespace src.Api.Domain.Dtos.Usuario
         public string Email { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
         public DateTime CreateAt { get; set; }
-        public DateTime UpdateAt { get; set; } 
-        public IEnumerable<FilmeDtoGetResult> FilmesAlugados { get; set; }
+        public DateTime UpdateAt { get; set; }         
     }
 }

@@ -112,17 +112,10 @@ namespace src.Api.Service.Test.Funcionario
                 filmes.Add(
                   new FilmeDtoGetResult()
                   {
-                      Id = Guid.NewGuid(),
-                      Titulo = Faker.Name.FullName(),
-                      Categoria = (Categoria) new Random().Next(Enum.GetNames(typeof(Categoria)).Length),
-                      Funcionario = new FuncionarioDtoGetResult()
-                        {
-                           Id = filmeCadastrado? IdFuncionario : Guid.NewGuid(),
-                           Nome = filmeCadastrado? NomeFuncionario : Faker.Name.FullName(),
-                           Email = filmeCadastrado? EmailFuncionario : Faker.Internet.Email(),
-                           Matricula = filmeCadastrado? MatriculaFuncionario : Faker.RandomNumber.Next(1000, 9999),
-                           CreateAt = DateTime.UtcNow,
-                        },
+                    Id = Guid.NewGuid(),
+                    Titulo = Faker.Name.FullName(),
+                    Categoria = (Categoria) new Random().Next(Enum.GetNames(typeof(Categoria)).Length),
+                    FuncionarioId = Guid.NewGuid(),
                     CreateAt = DateTime.UtcNow,
                     QtdLocacao = Faker.RandomNumber.Next(2, 10),
                     UpdateAt = DateTime.UtcNow.AddDays(2.0)
