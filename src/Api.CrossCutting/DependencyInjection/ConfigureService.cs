@@ -13,6 +13,7 @@ namespace src.Api.CrossCutting.DependencyInjection
             service.AddTransient<IFuncionarioService, FuncionarioService>();
             service.AddTransient<IItemAluguelService, ItemAluguelService>();
             service.AddTransient<IUsuarioService, UsuarioService>();
+            service.AddTransient<ILoginService, LoginService>();
         }
     }
 }

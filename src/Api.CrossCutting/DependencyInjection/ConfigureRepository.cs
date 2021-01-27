@@ -16,6 +16,7 @@ namespace src.Api.CrossCutting.DependencyInjection
             serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped<IAluguelRepository, AluguelImplementation>();
             serviceCollection.AddScoped<IItemAluguelRepository, ItemAluguelImplementation>();
+            serviceCollection.AddScoped<IFuncionarioRepository, FuncionarioImplementation>();
             serviceCollection.AddDbContext<MyContext>(options =>
                 options.UseMySql(Environment.GetEnvironmentVariable("DB_CONNECTION"))
             );
