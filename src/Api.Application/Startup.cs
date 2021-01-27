@@ -11,9 +11,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using src.Api.CrossCutting.DependencyInjection;
 using src.Api.CrossCutting.Mappings;
+using src.Api.Domain.Security;
 
 namespace Api.Application
 {
@@ -34,6 +36,16 @@ namespace Api.Application
             services.AddControllers();
             ConfigureRepository.ConfigureDependenciesRepository(services);
             ConfigureService.ConfigureDependenciesServices(services);
+
+            //JWT
+            var signingConfiguration = new SigningConfiguration();
+            services.AddSingleton(signingConfiguration);
+
+            var tokenConfiguration = new TokenConfiguration();
+            new ConfigureFromConfigurationOptions<TokenConfiguration>(
+                Configuration.GetSection("TokenConfiguration"))
+                .Configure(tokenConfiguration);
+            services.AddSingleton(tokenConfiguration);
 
             //Integration Test
             if(_environment.IsEnvironment("IntegrationTest"))
