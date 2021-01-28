@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using src.Api.Domain.Dtos.ItemAluguel;
 using src.Api.Domain.Interfaces.Services;
@@ -18,6 +19,7 @@ namespace src.Api.Application.Controllers
             _service = service;            
         }
 
+        [Authorize("Bearer")]
         [HttpGet]
         [Route("GetAllItensByAluguelId/{aluguelId}", Name = "GET-ITENS-ALUGUEL-ID")]
         public async Task<IActionResult> GetAllItensByAluguelId(Guid aluguelId)
@@ -34,6 +36,7 @@ namespace src.Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPost]        
         public async Task<IActionResult> Post ([FromBody] ItemAluguelDto itemAluguel)
         {
@@ -51,6 +54,7 @@ namespace src.Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPut]        
         public async Task<IActionResult> Put ([FromBody] ItemAluguelDtoUpdate itemAluguel)
         {
@@ -67,6 +71,7 @@ namespace src.Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpDelete]
         [Route("{id}")]        
         public async Task<IActionResult> Delete (Guid id)
