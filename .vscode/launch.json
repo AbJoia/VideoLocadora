@@ -21,12 +21,15 @@
             },
             "env": {
                 "ASPNETCORE_ENVIRONMENT": "Development",
-                "DB_CONNECTION" : "Server=localhost;Port=3306;Database=video_locadora_api;Uid=root;Pwd=admin123"
+                "DB_CONNECTION" : "Server=localhost;Port=3306;Database=video_locadora_api;Uid=root;Pwd=admin123",
+                "NomeLoja" : "Video Lim",
+                "mailAddress" : "testemodelo91@gmail.com",
+                "mailPassword" : "testemodelo(!"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
-            }
-        },
+            },            
+        },               
         {
             "name": ".NET Core Attach",
             "type": "coreclr",
