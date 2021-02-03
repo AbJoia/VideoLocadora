@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using src.Api.Domain.Dtos.Login;
 using src.Api.Domain.Interfaces.Services;
@@ -11,6 +12,7 @@ namespace src.Api.Application.Controllers
     [Route("video-locadora/[controller]")]
     public class LoginController : ControllerBase
     {
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto,
                                         [FromServices] ILoginService loginService)

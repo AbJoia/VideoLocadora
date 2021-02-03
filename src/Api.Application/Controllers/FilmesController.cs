@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using src.Api.Domain.Dtos.Filme;
 using src.Api.Domain.Interfaces.Services;
@@ -18,6 +19,7 @@ namespace src.Api.Application.Controllers
             _service = service;            
         }
 
+        [Authorize("Bearer")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -33,6 +35,7 @@ namespace src.Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpGet]
         [Route("{id}", Name = "GET-FILME-ID")]
         public async Task<IActionResult> GetById(Guid id)
@@ -50,6 +53,7 @@ namespace src.Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] FilmeDto filme)
         {
@@ -67,6 +71,7 @@ namespace src.Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPut]        
         public async Task<IActionResult> Put([FromBody] FilmeDtoUpdate filme)
         {
@@ -83,6 +88,7 @@ namespace src.Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpDelete]
         [Route("{id}")]
         public async Task<IActionResult> Delete(Guid id)

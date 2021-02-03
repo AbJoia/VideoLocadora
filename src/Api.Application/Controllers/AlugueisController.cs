@@ -1,6 +1,7 @@
 using System;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using src.Api.Domain.Dtos.Aluguel;
 using src.Api.Domain.Interfaces.Services;
@@ -18,6 +19,7 @@ namespace src.Api.Application.Controllers
             _service = service;
         }
 
+        [Authorize("Bearer")]
         [HttpGet]
         [Route("GetAllByUsuarioId/{usuarioId}")]
         public async Task<IActionResult> GetAllByUsuarioId(Guid usuarioId)
@@ -34,6 +36,7 @@ namespace src.Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpGet]
         [Route("GetCompleteById/{aluguelId}", Name = "GET-COMPLETE-ID")]
         public async Task<IActionResult> GetCompleteById(Guid aluguelId)
@@ -51,6 +54,7 @@ namespace src.Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPost]
         public async Task<IActionResult> Post ([FromBody] AluguelDto aluguel)
         {
@@ -68,6 +72,7 @@ namespace src.Api.Application.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPut]        
         public async Task<IActionResult> Put ([FromBody] AluguelDtoUpdate aluguel)
         {
@@ -84,6 +89,7 @@ namespace src.Api.Application.Controllers
             }
         } 
 
+        [Authorize("Bearer")]
         [HttpDelete]
         [Route("{id}")]        
         public async Task<IActionResult> Delete (Guid id)
