@@ -56,12 +56,11 @@ namespace src.Api.Service.Services
                 }
 
                 var identity = new ClaimsIdentity(
-                    new GenericIdentity((result as FuncionarioEntity).Nome),                    
+                    new GenericIdentity((result as FuncionarioEntity).Email),                    
                     new[]
                     {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                        new Claim(JwtRegisteredClaimNames.UniqueName, loginDto.Email),
-                        new Claim("Role", "Funcionario")                                                
+                        new Claim(JwtRegisteredClaimNames.UniqueName, loginDto.Email),                        
                     }
                 );
 
